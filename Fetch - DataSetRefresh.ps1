@@ -71,7 +71,7 @@ try {
 
     # Only look at Active, V2 Workspaces and with Datasets
 
-    $workspaces = @($workspaces | Where-Object { $_.type -eq "Workspace" -and $_.state -eq "Active" -and $_.datasets.Count -gt 0 })
+    $workspaceFilter = @($workspaces | Where-Object { $_.type -eq "Workspace" -and $_.state -eq "Active" -and $_.datasets.Count -gt 0 })
 
     if ($workspaceFilter -and $workspaceFilter.Count -gt 0) {
         $workspaces = @($workspaces | Where-Object { $workspaceFilter -contains $_.Id })
